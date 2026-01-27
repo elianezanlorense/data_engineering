@@ -1,0 +1,2 @@
+    1  which python
+    2  history > log.txt
