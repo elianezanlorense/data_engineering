@@ -1,1 +1,108 @@
     1  history > log.txt
+    2  docker run --entrypoint pip python:3.13 --version
+    3  wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet
+    4  wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
+    5  docker compose up -d
+    6  docker compose ps
+    7  uv init --python=3.13
+    8  uv add pandas pyarrow sqlalchemy psycopg2-binary tqdm click
+    9  uv run python homework/ingest_data.py
+   10  uv run python homework/pipeline.py
+   11  ls
+   12  uv run python pipeline.py --help
+   13  docker-compose up -d
+   14  # Teste simples de conexão
+   15  uv run python -c "
+   16  import sqlalchemy
+   17  engine = sqlalchemy.create_engine('postgresql://postgres:postgres@localhost:5433/ny_taxi')
+   18  conn = engine.connect()
+   19  print('Conexão bem sucedida!')
+   20  conn.close()
+   21  "
+   22  # Veja se os containers estão rodando
+   23  docker-compose ps
+   24  # Veja os logs do PostgreSQL
+   25  docker-compose logs db -f
+   26  # Pressione: CTRL + A, depois D
+   27  # Isso vai desanexar da sessão atual
+   28  ps aux | grep "docker-compose logs"
+   29  kill -9 33092
+   30  docker-compose restart db
+   31  cd /workspaces/data_engineering/01-docker-terraform/homework
+   32  uv run python pipeline.py   --pg-user postgres   --pg-pass postgres   --pg-host localhost   --pg-port 5433   --pg-db ny_taxi   --green-table green_taxi_trips   --zones-table taxi_zones   --chunksize 100000
+   33  mkdir -p data
+   34  mv taxi_zone_lookup.csv data/
+   35  # Crie a pasta data e mova o arquivo
+   36  mkdir -p data
+   37  mv taxi_zone_lookup.csv data/
+   38  uv run python pipeline.py   --pg-user postgres   --pg-pass postgres   --pg-host localhost   --pg-port 5433   --pg-db ny_taxi   --green-table green_taxi_trips   --zones-table taxi_zones   --chunksize 100000
+   39  ls
+   40  cd @elianezanlorense ➜ /workspaces/data_engineering/01-docker-terraform/homework (main) $ uv run python pipeline.py \
+   41  Traceback (most recent call last):
+   42  FileNotFoundError: [Errno 2] No such file or directory: 'taxi_zone_lookup.csv'
+   43  @elianezanlorense ➜ /workspaces/data_engineering/01-docker-terraform/homework (main) $ 
+   44  @elianezanlorense ➜ /workspaces/data_engineering/01-docker-terraform/homework (main) $ uv run python pipeline.py \
+   45  Traceback (most recent call last):
+   46  FileNotFoundError: [Errno 2] No such file or directory: 'taxi_zone_lookup.csv'
+   47  @elianezanlorense ➜ /workspaces/data_engineering/01-docker-terraform/homework (main) $ z
+   48  cd 
+   49  ls
+   50  cd /workspaces/
+   51  ls
+   52  cd data_enegineering
+   53  cd data_engineering
+   54  ls
+   55  cd 01-docker-terraform
+   56  ls
+   57  cd homework
+   58  ls
+   59  docker compose up -d
+   60  docker compose ps
+   61  wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet
+   62  wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
+   63  uv init --python=3.13
+   64  uv add pandas pyarrow sqlalchemy psycopg2-binary tqdm click
+   65  uv run python pipeline.py
+   66  find . -name "*taxi*" -type f
+   67  cd data
+   68  wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet
+   69  wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
+   70  cd ..
+   71  uv init --python=3.13
+   72  uv add pandas pyarrow sqlalchemy psycopg2-binary tqdm click
+   73  ls
+   74  cd homework
+   75  ls
+   76  mkdir data
+   77  ls
+   78  cd data
+   79  wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet
+   80  wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
+   81  ls
+   82  cd ..
+   83  ls
+   84  uv init --python=3.13
+   85  uv add pandas pyarrow sqlalchemy psycopg2-binary tqdm click
+   86  ls
+   87  cd ..
+   88  ls
+   89  cd homework
+   90  uv init --python=3.13
+   91  uv add pandas pyarrow sqlalchemy psycopg2-binary tqdm click
+   92  uv run python script.py
+   93  uv run python pipeline.py
+   94  # Verifique se o pipeline rodou com sucesso
+   95  # Execute:
+   96  uv run python pipeline.py   --pg-user postgres   --pg-pass postgres   --pg-host localhost   --pg-port 5433   --pg-db ny_taxi   --green-table green_taxi_trips   --zones-table taxi_zones   --chunksize 100000
+   97  # Conecte via terminal
+   98  PGPASSWORD=postgres psql -h localhost -p 5433 -U postgres -d ny_taxi -c "\dt"
+   99  # Linux (Ubuntu/Debian)
+  100  sudo apt-get install postgresql-client
+  101  # Mac
+  102  brew install postgresql
+  103  # Ou use Docker para acessar
+  104  git status
+  105  git add .
+  106  git commit -m'homewrok week 1'
+  107  git push
+  108  history > log.txt
